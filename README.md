@@ -43,7 +43,7 @@
 
     val_dataloader=DataLoader(dataset,batch_size=N_BATCH,collate_fn=collate_fn)
 
-    layers = [FullAttention,FullAttention,FullAttention,LinearAttentionLinearAttention,LinearAttention]
+    layers = [FullAttention,FullAttention,FullAttention,LinearAttention,LinearAttention,LinearAttention]
     model = Protein_Classifier2(layers=layers,dim=256,n_layers=6,n_heads=8,dim_feedfwd=512,causal=False)
     D = torch.load("./weights/full_model.pth")["params"]
     model.load_state_dict(D,strict=False)
